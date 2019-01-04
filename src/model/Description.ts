@@ -54,5 +54,8 @@ export interface Descriptiton {
  * @see {@link http://api-portal.nhk.or.jp/doc-request|ドキュメント リクエストの説明}
  */
 export interface DescriptionList {
-  [key: string]: Descriptiton
+  /** 番組 */
+  list: {
+    [key: string]: Descriptiton
+  }
 }

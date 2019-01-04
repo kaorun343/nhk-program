@@ -35,5 +35,8 @@ export interface Program {
  * @see {@link http://api-portal.nhk.or.jp/doc-request|ドキュメント リクエストの説明}
  */
 export interface List {
-  [key: string]: Program
+  /** 番組 */
+  list: {
+    [key: string]: Program
+  }
 }

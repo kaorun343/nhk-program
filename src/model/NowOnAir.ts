@@ -18,5 +18,8 @@ export interface NowOnAir {
  * @see {@link http://api-portal.nhk.or.jp/doc-request|ドキュメント リクエストの説明}
  */
 export interface NowOnAirList {
-  [key: string]: NowOnAir
+  /** 現在提供中の番組 */
+  nowonair_list: {
+    [key: string]: NowOnAir
+  }
 }
