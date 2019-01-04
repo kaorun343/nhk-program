@@ -1,6 +1,9 @@
 import { Area } from './Area'
 import { Service } from './Service'
 
+/**
+ * @see {@link http://api-portal.nhk.or.jp/doc-request|ドキュメント リクエストの説明}
+ */
 export interface Program {
   /** 番組ID */
   id: string
@@ -28,6 +31,9 @@ export interface Program {
   genres: string[]
 }
 
+/**
+ * @see {@link http://api-portal.nhk.or.jp/doc-request|ドキュメント リクエストの説明}
+ */
 export interface List {
   [key: string]: Program
 }

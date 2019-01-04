@@ -2,6 +2,9 @@ import { Area } from './Area'
 import { Service } from './Service'
 import { Logo } from './Logo'
 
+/**
+ * @see {@link http://api-portal.nhk.or.jp/doc-request|ドキュメント リクエストの説明}
+ */
 export interface Descriptiton {
   /** 番組ID */
   id: string
@@ -47,6 +50,9 @@ export interface Descriptiton {
   hashtags: string[]
 }
 
+/**
+ * @see {@link http://api-portal.nhk.or.jp/doc-request|ドキュメント リクエストの説明}
+ */
 export interface DescriptionList {
   [key: string]: Descriptiton
 }
