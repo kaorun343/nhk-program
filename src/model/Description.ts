@@ -46,3 +46,7 @@ export interface Descriptiton {
   /** 番組に関連するハッシュタグ */
   hashtags: string[]
 }
+
+export interface DescriptionList {
+  [key: string]: Descriptiton
+}

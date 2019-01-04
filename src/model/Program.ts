@@ -27,3 +27,7 @@ export interface Program {
   /** 番組ジャンル */
   genres: string[]
 }
+
+export interface List {
+  [key: string]: Program
+}

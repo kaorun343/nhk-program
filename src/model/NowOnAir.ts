@@ -10,3 +10,7 @@ export interface NowOnAir {
   /** 次に放送予定の番組 */
   following?: Program
 }
+
+export interface NowOnAirList {
+  [key: string]: NowOnAir
+}
