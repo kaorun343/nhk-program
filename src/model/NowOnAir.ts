@@ -19,7 +19,5 @@ export interface NowOnAir {
  */
 export interface NowOnAirList {
   /** 現在提供中の番組 */
-  nowonair_list: {
-    [key: string]: NowOnAir
-  }
+  nowonair_list: Record<string, NowOnAir>
 }

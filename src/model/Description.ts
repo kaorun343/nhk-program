@@ -55,7 +55,5 @@ export interface Descriptiton {
  */
 export interface DescriptionList {
   /** 番組 */
-  list: {
-    [key: string]: Descriptiton
-  }
+  list: Record<string, Descriptiton>
 }

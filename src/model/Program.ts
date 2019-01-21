@@ -36,7 +36,5 @@ export interface Program {
  */
 export interface List {
   /** 番組 */
-  list: {
-    [key: string]: Program
-  }
+  list: Record<string, Program>
 }
