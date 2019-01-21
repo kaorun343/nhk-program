@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "parcel build index.html --bundle-node-modules --no-source-maps --public-url ./ --experimental-scope-hoisting",
+    "release": "electron-builder --publish never",
+    "start": "electron .",
     "test": "jest",
     "test:watch": "jest --watch",
     "watch": "parcel index.html"
@@ -16,6 +19,8 @@
     "@types/node": "^10.12.18",
     "@types/react": "^16.7.18",
     "@types/react-dom": "^16.0.11",
+    "electron": "^4.0.1",
+    "electron-builder": "^20.38.5",
     "jest": "^23.6.0",
     "parcel": "^1.11.0",
     "ts-jest": "^23.10.5",
@@ -38,6 +43,17 @@
       "jsx",
       "json",
       "node"
+    ]
+  },
+  "build": {
+    "directories": {
+      "output": "releases"
+    },
+    "mac": {},
+    "files": [
+      "./*",
+      "./dist/*",
+      "!**/node_modules/**"
     ]
   }
 }
