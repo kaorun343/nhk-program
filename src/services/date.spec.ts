@@ -1,4 +1,4 @@
-import { formatTime, formatDate } from './date'
+import { formatTime, formatDate, formatDateTime } from './date'
 
 describe('date', () => {
   describe('formatTime', () => {
@@ -15,6 +15,13 @@ describe('date', () => {
     it('日時を整形する', () => {
       const date = new Date('2019-01-22T08:00:00+09:00')
       expect(formatDate(date)).toBe('2019-01-22')
+    })
+  })
+
+  describe('formatDateTime', () => {
+    it('日時を整形する', () => {
+      const date = new Date('2019-01-22T08:00:00+09:00')
+      expect(formatDateTime(date)).toBe('2019-01-22T08:00:00+09:00')
     })
   })
 })

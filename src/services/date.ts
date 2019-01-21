@@ -26,3 +26,11 @@ export function formatDate(text: string | Date) {
 
   return `${year}-${zeroPadding(month)}-${zeroPadding(date)}`
 }
+
+/**
+ * 日時と時刻に整形する
+ * @param text 整形前の日時
+ */
+export function formatDateTime(text: string | Date) {
+  return `${formatDate(text)}T${formatTime(text)}:00+09:00`
+}
