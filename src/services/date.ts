@@ -4,9 +4,9 @@ function zeroPadding(number: number) {
 
 /**
  * 時刻を整形する
- * @param text 整形前の日時テキスト
+ * @param text 整形前の日時
  */
-export function formatTime(text: string) {
+export function formatTime(text: string | Date) {
   const obj = new Date(text)
   const hours = obj.getHours()
   const minutes = obj.getMinutes()
@@ -14,6 +14,10 @@ export function formatTime(text: string) {
   return `${zeroPadding(hours)}:${zeroPadding(minutes)}`
 }
 
+/**
+ * 日時を整形する
+ * @param text 整形前の日時
+ */
 export function formatDate(text: string | Date) {
   const obj = new Date(text)
   const year = obj.getFullYear()
