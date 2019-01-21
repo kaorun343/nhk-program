@@ -12,13 +12,11 @@ const API_KEY: string = process.env.API_KEY!
  * @param service サービスID
  * @param date 日付（YYYY-MM-DD形式、当日から１週間先までの日付を指定）
  */
-export function programListApi(
-  area: string,
-  service: string,
-  date: string,
-): Promise<List> {
+export function programListApi(area: string, service: string, date: string) {
   const url = `${ENDPOINT}/list/${area}/${service}/${date}.json?key=${API_KEY}`
-  return fetch(url).then(response => response.json())
+  return fetch(url)
+    .then<List>(response => response.json())
+    .then(json => json.list)
 }
 
 /**
@@ -34,9 +32,11 @@ export function programGenreApi(
   service: string,
   genre: string,
   date: string,
-): Promise<List> {
+) {
   const url = `${ENDPOINT}/genre/${area}/${service}/${genre}/${date}.json?key=${API_KEY}`
-  return fetch(url).then(response => response.json())
+  return fetch(url)
+    .then<List>(response => response.json())
+    .then(json => json.list)
 }
 
 /**
@@ -46,13 +46,11 @@ export function programGenreApi(
  * @param service サービスID
  * @param id 番組ID
  */
-export function programLinfoApi(
-  area: string,
-  service: string,
-  id: string,
-): Promise<DescriptionList> {
+export function programLinfoApi(area: string, service: string, id: string) {
   const url = `${ENDPOINT}/info/${area}/${service}/${id}.json?key=${API_KEY}`
-  return fetch(url).then(response => response.json())
+  return fetch(url)
+    .then<DescriptionList>(response => response.json())
+    .then(json => json.list)
 }
 
 /**
@@ -61,10 +59,9 @@ export function programLinfoApi(
  * @param area 地域ID
  * @param service サービスID
  */
-export function nowOnAirApi(
-  area: string,
-  service: string,
-): Promise<NowOnAirList> {
+export function nowOnAirApi(area: string, service: string) {
   const url = `${ENDPOINT}/now/${area}/${service}.json?key=${API_KEY}`
-  return fetch(url).then(response => response.json())
+  return fetch(url)
+    .then<NowOnAirList>(response => response.json())
+    .then(json => json.nowonair_list)
 }
