@@ -3,7 +3,7 @@ import * as React from 'react'
 import { withStyles, WithStyles, createStyles } from '@material-ui/core'
 
 // Mine
-import { Program } from '../model/Program'
+import { Program } from '../models/Program'
 import { ProgramComponent } from './Program'
 
 export type Props = {

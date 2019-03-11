@@ -5,7 +5,7 @@ import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
 
 // Mine
-import { Program } from '../model/Program'
+import { Program } from '../models/Program'
 import { formatTime } from '../services/date'
 
 export type Props = {

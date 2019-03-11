@@ -3,7 +3,7 @@ import * as React from 'react'
 import { createStyles, withStyles, WithStyles } from '@material-ui/core'
 
 // Mine
-import { Program } from '../model/Program'
+import { Program } from '../models/Program'
 import { nowOnAirApi } from '../infrastructure/api'
 import { ProgramsComponent } from '../components/Programs'
 import { AppBarComponent } from '../components/AppBar'
