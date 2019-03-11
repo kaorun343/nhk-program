@@ -1,6 +1,6 @@
-import { List } from '../model/Program'
-import { DescriptionList } from '../model/Description'
-import { NowOnAirList } from '../model/NowOnAir'
+import { List } from '../models/Program'
+import { DescriptionList } from '../models/Description'
+import { NowOnAirList } from '../models/NowOnAir'
 
 const ENDPOINT = 'http://api.nhk.or.jp/v2/pg'
 const API_KEY: string = process.env.API_KEY!
