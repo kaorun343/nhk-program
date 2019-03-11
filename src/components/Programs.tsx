@@ -7,7 +7,7 @@ import { Program } from '../models/Program'
 import { ProgramComponent } from './Program'
 
 export type Props = {
-  programs: Program[]
+  programs: ReadonlyArray<Program>
 }
 
 const styles = createStyles({
@@ -25,9 +25,9 @@ export const ProgramsComponent = withStyles(styles)(
     <div>
       <div>
         {programs.map((program, idx) => (
-          <div className={classes.program}>
-            <div>{program!.service.name}</div>
-            <ProgramComponent key={idx} program={program} />
+          <div className={classes.program} key={idx}>
+            <div>{program.service.name}</div>
+            <ProgramComponent program={program} />
           </div>
         ))}
       </div>
