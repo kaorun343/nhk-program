@@ -19,7 +19,7 @@ export const ProgramComponent = ({ program }: Props) => (
   <Card>
     <CardContent>
       <Typography color="textSecondary" gutterBottom>
-        {formatTime(program.start_time)}
+        {formatTime(program.start_time)} ~ {formatTime(program.end_time)}
       </Typography>
       <Typography variant="h5" component="h2">
         {program.title}
