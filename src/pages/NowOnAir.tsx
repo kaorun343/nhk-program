@@ -5,7 +5,7 @@ import { createMuiTheme } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
 
 // Mine
-import { ProgramList } from '../components/ProgramList'
+import { NowOnAirList } from '../components/NowOnAirList'
 import { AppBar } from '../components/AppBar'
 import { useNowOnAir } from '../hooks/useNowOnAir'
 
@@ -15,7 +15,7 @@ const theme = createMuiTheme({
   },
 })
 
-export const App: FC = () => {
+export const NowOnAir: FC = () => {
   const [present, getPrograms] = useNowOnAir()
 
   return (
@@ -23,7 +23,7 @@ export const App: FC = () => {
       <ThemeProvider theme={theme}>
         <AppBar reload={getPrograms} />
         <Container>
-          <ProgramList programs={present} />
+          <NowOnAirList programs={present} />
         </Container>
       </ThemeProvider>
     </div>

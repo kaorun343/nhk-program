@@ -20,9 +20,9 @@ const useStyles = makeStyles({
 })
 
 /**
- * 番組一覧を表示するコンポーネント
+ * 現在放送中の番組一覧を表示するコンポーネント
  */
-export const ProgramList: FC<Props> = ({ programs }) => {
+export const NowOnAirList: FC<Props> = ({ programs }) => {
   const classes = useStyles()
 
   return (
