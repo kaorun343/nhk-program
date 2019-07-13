@@ -4,7 +4,7 @@ import { createStyles, withStyles, WithStyles } from '@material-ui/core'
 
 // Mine
 import { Program } from '../models/Program'
-import { nowOnAirApi } from '../infrastructure/api'
+import { nowOnAirApi } from '../infrastructures/api'
 import { ProgramsComponent } from '../components/Programs'
 import { AppBarComponent } from '../components/AppBar'
 
