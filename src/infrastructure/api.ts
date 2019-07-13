@@ -46,7 +46,7 @@ export function programGenreApi(
  * @param service サービスID
  * @param id 番組ID
  */
-export function programLinfoApi(area: string, service: string, id: string) {
+export function programInfoApi(area: string, service: string, id: string) {
   const url = `${ENDPOINT}/info/${area}/${service}/${id}.json?key=${API_KEY}`
   return fetch(url)
     .then<DescriptionList>(response => response.json())
