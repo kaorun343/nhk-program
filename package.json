@@ -55,5 +55,8 @@
       "./dist/*",
       "!**/node_modules/**"
     ]
-  }
+  },
+  "browserslist": [
+    "last 1 Chrome version"
+  ]
 }
