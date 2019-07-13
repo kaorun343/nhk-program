@@ -1,41 +1,40 @@
 // Libraries
-import * as React from 'react'
-import { createStyles, withStyles, WithStyles } from '@material-ui/core'
+import React, { FC, useCallback, useEffect } from 'react'
+import { makeStyles } from '@material-ui/styles'
 
 // Mine
 import { Program } from '../models/Program'
 import { nowOnAirApi } from '../infrastructures/api'
-import { ProgramsComponent } from '../components/Programs'
-import { AppBarComponent } from '../components/AppBar'
+import { ProgramList } from '../components/ProgramList'
+import { AppBar } from '../components/AppBar'
 
-const styles = createStyles({
+const useStyles = makeStyles({
   programs: {
     padding: '1rem',
   },
 })
 
-export const App = withStyles(styles)(
-  (props: WithStyles<keyof typeof styles>) => {
-    const [present, setPresent] = React.useState([] as ReadonlyArray<Program>)
+export const App: FC = () => {
+  const classes = useStyles()
+  const [present, setPresent] = React.useState([] as ReadonlyArray<Program>)
 
-    const getPrograms = React.useCallback(() => {
-      nowOnAirApi('010', 'tv').then(list => {
-        const channelsKeys = ['g1', 'g2', 'e1', 'e3', 's1', 's3']
-        const channels = channelsKeys.map(key => list[key])
-        const present = channels.map(channel => channel.present)
-        setPresent(present)
-      })
-    }, [present])
+  const getPrograms = useCallback(() => {
+    nowOnAirApi('010', 'tv').then(list => {
+      const channelsKeys = ['g1', 'g2', 'e1', 'e3', 's1', 's3']
+      const channels = channelsKeys.map(key => list[key])
+      const present = channels.map(channel => channel.present)
+      setPresent(present)
+    })
+  }, [present])
 
-    React.useEffect(() => getPrograms(), [])
+  useEffect(() => getPrograms(), [])
 
-    return (
-      <div>
-        <AppBarComponent reload={getPrograms} />
-        <div className={props.classes.programs}>
-          <ProgramsComponent programs={present} />
-        </div>
+  return (
+    <div>
+      <AppBar reload={getPrograms} />
+      <div className={classes.programs}>
+        <ProgramList programs={present} />
       </div>
-    )
-  },
-)
+    </div>
+  )
+}

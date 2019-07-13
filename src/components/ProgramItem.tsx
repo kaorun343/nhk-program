@@ -1,5 +1,5 @@
 // Libraries
-import * as React from 'react'
+import React, { FC } from 'react'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
@@ -8,14 +8,14 @@ import Typography from '@material-ui/core/Typography'
 import { Program } from '../models/Program'
 import { formatTime } from '../services/date'
 
-export type Props = {
+type Props = {
   program: Program
 }
 
 /**
  * 番組情報を表示するコンポーネント
  */
-export const ProgramComponent = ({ program }: Props) => (
+export const ProgramItem: FC<Props> = ({ program }) => (
   <Card>
     <CardContent>
       <Typography color="textSecondary" gutterBottom>

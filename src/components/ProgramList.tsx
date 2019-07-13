@@ -1,16 +1,16 @@
 // Libraries
-import * as React from 'react'
-import { withStyles, WithStyles, createStyles } from '@material-ui/core'
+import React, { FC } from 'react'
+import { makeStyles } from '@material-ui/styles'
 
 // Mine
 import { Program } from '../models/Program'
-import { ProgramComponent } from './Program'
+import { ProgramItem } from './ProgramItem'
 
-export type Props = {
+type Props = {
   programs: ReadonlyArray<Program>
 }
 
-const styles = createStyles({
+const useStyles = makeStyles({
   program: {
     flex: 1,
     padding: '1rem',
@@ -20,17 +20,19 @@ const styles = createStyles({
 /**
  * 番組一覧を表示するコンポーネント
  */
-export const ProgramsComponent = withStyles(styles)(
-  ({ programs, classes }: Props & WithStyles<keyof typeof styles>) => (
+export const ProgramList: FC<Props> = ({ programs }) => {
+  const classes = useStyles()
+
+  return (
     <div>
       <div>
         {programs.map((program, idx) => (
           <div className={classes.program} key={idx}>
             <div>{program.service.name}</div>
-            <ProgramComponent program={program} />
+            <ProgramItem program={program} />
           </div>
         ))}
       </div>
     </div>
-  ),
-)
+  )
+}
