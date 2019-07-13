@@ -31,6 +31,23 @@ export interface Program {
   genres: string[]
 }
 
+export function uniquePrograms<T extends Pick<Program, 'id'>>(
+  programs: readonly T[],
+) {
+  const ids = new Set(programs.map(program => program.id))
+
+  const result: T[] = []
+  for (const program of programs) {
+    const id = program.id
+    if (ids.has(id)) {
+      result.push(program)
+      ids.delete(id)
+    }
+  }
+
+  return result
+}
+
 /**
  * @see {@link http://api-portal.nhk.or.jp/doc-request|ドキュメント リクエストの説明}
  */

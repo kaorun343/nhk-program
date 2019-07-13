@@ -1,14 +1,12 @@
 import { useState, useEffect, useCallback } from 'react'
 import { nowOnAirApi } from '../infrastructures/api'
-import { Program } from '../models/Program'
-
-const channelsKeys = ['g1', 'g2', 'e1', 'e3', 's1', 's3']
+import { Program, uniquePrograms } from '../models/Program'
 
 async function getPrograms() {
   const list = await nowOnAirApi('010', 'tv')
-  const channels = channelsKeys.map(key => list[key])
+  const channels = Object.keys(list).map(key => list[key])
   const present = channels.map(channel => channel.present)
-  return present
+  return uniquePrograms(present)
 }
 
 export function useNowOnAir() {
