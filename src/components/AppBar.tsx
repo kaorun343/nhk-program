@@ -24,7 +24,7 @@ export const AppBar: FC<Props> = ({ reload }) => {
 
   return (
     <div className={classes.root}>
-      <MaterialAppBar position="static">
+      <MaterialAppBar color="default" position="static">
         <Toolbar>
           <Typography variant="h6" color="inherit" className={classes.grow}>
             NHK 番組表
