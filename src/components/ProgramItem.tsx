@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography'
 
 // Mine
 import { Program } from '../models/Program'
-import { formatTime } from '../services/date'
+import { formatTimeRange } from '../services/date'
 
 type Props = {
   title: string
@@ -17,11 +17,10 @@ type Props = {
  * 番組情報を表示するコンポーネント
  */
 export const ProgramItem: FC<Props> = ({ title, program }) => {
-  const timeRange = useMemo(() => {
-    const start = formatTime(program.start_time)
-    const end = formatTime(program.end_time)
-    return `${start} ~ ${end}`
-  }, [program])
+  const timeRange = useMemo(
+    () => formatTimeRange(program.start_time, program.end_time),
+    [program],
+  )
 
   return (
     <Card>
