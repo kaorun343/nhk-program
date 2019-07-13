@@ -13,7 +13,7 @@ type Props = {
 const useStyles = makeStyles({
   program: {
     flex: 1,
-    padding: '1rem',
+    paddingTop: '1rem',
   },
 })
 
@@ -26,12 +26,14 @@ export const ProgramList: FC<Props> = ({ programs }) => {
   return (
     <div>
       <div>
-        {programs.map((program, idx) => (
-          <div className={classes.program} key={idx}>
-            <div>{program.service.name}</div>
-            <ProgramItem program={program} />
-          </div>
-        ))}
+        {programs.map(program => {
+          const channel = program.service.name
+          return (
+            <div className={classes.program} key={channel}>
+              <ProgramItem title={channel} program={program} />
+            </div>
+          )
+        })}
       </div>
     </div>
   )
