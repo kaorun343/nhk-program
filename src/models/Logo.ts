@@ -1,5 +1,5 @@
 /**
- * @see {@link http://api-portal.nhk.or.jp/doc-request|ドキュメント リクエストの説明}
+ * @see {@link http://api-portal.nhk.or.jp/doc-request |ドキュメント リクエストの説明}
  */
 export interface Logo {
   /** ロゴ画像のURL */

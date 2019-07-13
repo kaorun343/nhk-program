@@ -1,7 +1,7 @@
 import { Program } from './Program'
 
 /**
- * @see {@link http://api-portal.nhk.or.jp/doc-request|ドキュメント リクエストの説明}
+ * @see {@link http://api-portal.nhk.or.jp/doc-request |ドキュメント リクエストの説明}
  */
 export interface NowOnAir {
   /** 前に放送した番組 */
@@ -15,7 +15,7 @@ export interface NowOnAir {
 }
 
 /**
- * @see {@link http://api-portal.nhk.or.jp/doc-request|ドキュメント リクエストの説明}
+ * @see {@link http://api-portal.nhk.or.jp/doc-request |ドキュメント リクエストの説明}
  */
 export interface NowOnAirList {
   /** 現在提供中の番組 */

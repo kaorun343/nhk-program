@@ -2,7 +2,7 @@ import { Area } from './Area'
 import { Service } from './Service'
 
 /**
- * @see {@link http://api-portal.nhk.or.jp/doc-request|ドキュメント リクエストの説明}
+ * @see {@link http://api-portal.nhk.or.jp/doc-request |ドキュメント リクエストの説明}
  */
 export interface Program {
   /** 番組ID */
@@ -49,7 +49,7 @@ export function uniquePrograms<T extends Pick<Program, 'id'>>(
 }
 
 /**
- * @see {@link http://api-portal.nhk.or.jp/doc-request|ドキュメント リクエストの説明}
+ * @see {@link http://api-portal.nhk.or.jp/doc-request |ドキュメント リクエストの説明}
  */
 export interface List {
   /** 番組 */
