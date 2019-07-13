@@ -1,9 +1,10 @@
 import { List } from '../models/Program'
 import { DescriptionList } from '../models/Description'
 import { NowOnAirList } from '../models/NowOnAir'
+import { getApiKey } from '../services/apiKey'
 
 const ENDPOINT = 'http://api.nhk.or.jp/v2/pg'
-const API_KEY: string = process.env.API_KEY!
+const API_KEY = getApiKey()
 
 /**
  * 放送地域、サービス（放送波）、日付を指定することで、該当する番組表情報を取得することが可能です。
@@ -12,11 +13,14 @@ const API_KEY: string = process.env.API_KEY!
  * @param service サービスID
  * @param date 日付（YYYY-MM-DD形式、当日から１週間先までの日付を指定）
  */
-export function programListApi(area: string, service: string, date: string) {
+export async function programListApi(
+  area: string,
+  service: string,
+  date: string,
+) {
   const url = `${ENDPOINT}/list/${area}/${service}/${date}.json?key=${API_KEY}`
-  return fetch(url)
-    .then<List>(response => response.json())
-    .then(json => json.list)
+  const json = await getJsonFromServer<List>(url)
+  return json.list
 }
 
 /**
@@ -27,16 +31,15 @@ export function programListApi(area: string, service: string, date: string) {
  * @param genre ジャンルID
  * @param date 日付（YYYY-MM-DD形式、当日から１週間先までの日付を指定）
  */
-export function programGenreApi(
+export async function programGenreApi(
   area: string,
   service: string,
   genre: string,
   date: string,
 ) {
   const url = `${ENDPOINT}/genre/${area}/${service}/${genre}/${date}.json?key=${API_KEY}`
-  return fetch(url)
-    .then<List>(response => response.json())
-    .then(json => json.list)
+  const json = await getJsonFromServer<List>(url)
+  return json.list
 }
 
 /**
@@ -46,11 +49,14 @@ export function programGenreApi(
  * @param service サービスID
  * @param id 番組ID
  */
-export function programInfoApi(area: string, service: string, id: string) {
+export async function programInfoApi(
+  area: string,
+  service: string,
+  id: string,
+) {
   const url = `${ENDPOINT}/info/${area}/${service}/${id}.json?key=${API_KEY}`
-  return fetch(url)
-    .then<DescriptionList>(response => response.json())
-    .then(json => json.list)
+  const json = await getJsonFromServer<DescriptionList>(url)
+  return json.list
 }
 
 /**
@@ -59,9 +65,14 @@ export function programInfoApi(area: string, service: string, id: string) {
  * @param area 地域ID
  * @param service サービスID
  */
-export function nowOnAirApi(area: string, service: string) {
+export async function nowOnAirApi(area: string, service: string) {
   const url = `${ENDPOINT}/now/${area}/${service}.json?key=${API_KEY}`
-  return fetch(url)
-    .then<NowOnAirList>(response => response.json())
-    .then(json => json.nowonair_list)
+  const json = await getJsonFromServer<NowOnAirList>(url)
+  return json.nowonair_list
+}
+
+async function getJsonFromServer<T>(url: string) {
+  const response = await fetch(url)
+  const json: T = await response.json()
+  return json
 }
