@@ -17,7 +17,12 @@ export interface NowOnAir {
 /**
  * @see {@link http://api-portal.nhk.or.jp/doc-request |ドキュメント リクエストの説明}
  */
+export type CollectionOfNowOnAir = Record<string, NowOnAir>
+
+/**
+ * @see {@link http://api-portal.nhk.or.jp/doc-request |ドキュメント リクエストの説明}
+ */
 export interface NowOnAirList {
   /** 現在提供中の番組 */
-  nowonair_list: Record<string, NowOnAir>
+  nowonair_list: CollectionOfNowOnAir
 }

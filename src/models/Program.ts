@@ -51,7 +51,12 @@ export function uniquePrograms<T extends Pick<Program, 'id'>>(
 /**
  * @see {@link http://api-portal.nhk.or.jp/doc-request |ドキュメント リクエストの説明}
  */
+export type CollectionOfProgram = Record<string, Program[]>
+
+/**
+ * @see {@link http://api-portal.nhk.or.jp/doc-request |ドキュメント リクエストの説明}
+ */
 export interface List {
   /** 番組 */
-  list: Record<string, Program[]>
+  list: CollectionOfProgram
 }

@@ -53,7 +53,12 @@ export interface Descriptiton {
 /**
  * @see {@link http://api-portal.nhk.or.jp/doc-request |ドキュメント リクエストの説明}
  */
+export type CollectionOfDescription = Record<string, Descriptiton>
+
+/**
+ * @see {@link http://api-portal.nhk.or.jp/doc-request |ドキュメント リクエストの説明}
+ */
 export interface DescriptionList {
   /** 番組 */
-  list: Record<string, Descriptiton>
+  list: CollectionOfDescription
 }
