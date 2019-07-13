@@ -3,7 +3,7 @@ import { Program } from './Program'
 /**
  * @see {@link http://api-portal.nhk.or.jp/doc-request |ドキュメント リクエストの説明}
  */
-export interface NowOnAir {
+export type NowOnAir = {
   /** 前に放送した番組 */
   previous?: Program
 
@@ -22,7 +22,7 @@ export type CollectionOfNowOnAir = Record<string, NowOnAir>
 /**
  * @see {@link http://api-portal.nhk.or.jp/doc-request |ドキュメント リクエストの説明}
  */
-export interface NowOnAirList {
+export type NowOnAirList = {
   /** 現在提供中の番組 */
   nowonair_list: CollectionOfNowOnAir
 }

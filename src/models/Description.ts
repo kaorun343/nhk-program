@@ -5,7 +5,7 @@ import { Logo } from './Logo'
 /**
  * @see {@link http://api-portal.nhk.or.jp/doc-request |ドキュメント リクエストの説明}
  */
-export interface Descriptiton {
+export type Descriptiton = {
   /** 番組ID */
   id: string
 
@@ -58,7 +58,7 @@ export type CollectionOfDescription = Record<string, Descriptiton>
 /**
  * @see {@link http://api-portal.nhk.or.jp/doc-request |ドキュメント リクエストの説明}
  */
-export interface DescriptionList {
+export type DescriptionList = {
   /** 番組 */
   list: CollectionOfDescription
 }

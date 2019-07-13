@@ -4,7 +4,7 @@ import { Service } from './Service'
 /**
  * @see {@link http://api-portal.nhk.or.jp/doc-request |ドキュメント リクエストの説明}
  */
-export interface Program {
+export type Program = {
   /** 番組ID */
   id: string
 
@@ -56,7 +56,7 @@ export type CollectionOfProgram = Record<string, Program[]>
 /**
  * @see {@link http://api-portal.nhk.or.jp/doc-request |ドキュメント リクエストの説明}
  */
-export interface List {
+export type List = {
   /** 番組 */
   list: CollectionOfProgram
 }

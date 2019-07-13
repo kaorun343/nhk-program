@@ -1,7 +1,7 @@
 /**
  * @see {@link http://api-portal.nhk.or.jp/doc-request |ドキュメント リクエストの説明}
  */
-export interface Logo {
+export type Logo = {
   /** ロゴ画像のURL */
   url?: string
 
