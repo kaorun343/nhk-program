@@ -3,6 +3,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 // Mine
-import { NowOnAirPage } from './pages/NowOnAirPage'
+import { App } from './App'
 
-ReactDOM.render(<NowOnAirPage />, document.getElementById('app'))
+ReactDOM.render(<App />, document.getElementById('app'))
