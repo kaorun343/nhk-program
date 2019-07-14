@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/styles'
 
 export type Props = {
-  reload(): void
+  reload?(): void
 }
 
 const useStyles = makeStyles({
@@ -29,9 +29,11 @@ export const AppBar: FC<Props> = ({ reload }) => {
           <Typography variant="h6" color="inherit" className={classes.grow}>
             NHK 番組表
           </Typography>
-          <Button color="inherit" onClick={reload}>
-            再読み込み
-          </Button>
+          {reload && (
+            <Button color="inherit" onClick={reload}>
+              再読み込み
+            </Button>
+          )}
         </Toolbar>
       </MaterialAppBar>
     </div>

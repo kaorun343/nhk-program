@@ -1,6 +1,11 @@
 // Libraries
 import React, { FC } from 'react'
-import { createMuiTheme, Container } from '@material-ui/core'
+import {
+  createMuiTheme,
+  Container,
+  Typography,
+  makeStyles,
+} from '@material-ui/core'
 import { ThemeProvider } from '@material-ui/styles'
 
 // Mine
@@ -12,16 +17,30 @@ const theme = createMuiTheme({
   },
 })
 
+const useStyle = makeStyles({
+  container: {
+    paddingTop: '1rem',
+  },
+})
+
 type Props = {
-  onReload(): void
+  title: string
+  onReload?(): void
 }
 
-export const DefaultLayout: FC<Props> = ({ children, onReload }) => {
+export const DefaultLayout: FC<Props> = ({ title, onReload, children }) => {
+  const classes = useStyle()
+
   return (
     <div>
       <ThemeProvider theme={theme}>
         <AppBar reload={onReload} />
-        <Container>{children}</Container>
+        <Container className={classes.container}>
+          <Typography variant="h4" component="h1">
+            {title}
+          </Typography>
+          {children}
+        </Container>
       </ThemeProvider>
     </div>
   )

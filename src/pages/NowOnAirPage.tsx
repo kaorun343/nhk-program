@@ -10,7 +10,7 @@ export const NowOnAirPage: FC = () => {
   const [present, getPrograms] = useNowOnAir()
 
   return (
-    <DefaultLayout onReload={getPrograms}>
+    <DefaultLayout title="現在放送している番組" onReload={getPrograms}>
       <NowOnAirList programs={present} />
     </DefaultLayout>
   )
