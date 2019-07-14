@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Descriptiton } from '../models/Description'
+import { Description } from '../models/Description'
 import { programInfoApi } from '../infrastructures/api'
 
 /**
@@ -10,7 +10,7 @@ import { programInfoApi } from '../infrastructures/api'
  * @param id 番組ID
  */
 export function useProgramInfo(area: string, service: string, id: string) {
-  const [description, setDescription] = useState(null as Descriptiton | null)
+  const [description, setDescription] = useState(null as Description | null)
 
   useEffect(() => {
     programInfoApi(area, service, id)

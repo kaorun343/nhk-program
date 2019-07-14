@@ -3,11 +3,11 @@ import React, { FC, useMemo } from 'react'
 import { Typography, Card, CardContent } from '@material-ui/core'
 
 // Mine
-import { Descriptiton } from '../models/Description'
+import { Description } from '../models/Description'
 import { formatTimeRange } from '../services/date'
 
 type Props = {
-  program: Descriptiton
+  program: Description
 }
 
 /**
