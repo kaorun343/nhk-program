@@ -1,4 +1,3 @@
-import { List } from '../models/Program'
 import { DescriptionList } from '../models/Description'
 import { NowOnAirList } from '../models/NowOnAir'
 import { getApiKey } from '../services/apiKey'
@@ -19,7 +18,7 @@ export async function programListApi(
   date: string,
 ) {
   const url = `${ENDPOINT}/list/${area}/${service}/${date}.json?key=${API_KEY}`
-  const json = await getJsonFromServer<List>(url)
+  const json = await getJsonFromServer<DescriptionList>(url)
   return json.list
 }
 
@@ -38,7 +37,7 @@ export async function programGenreApi(
   date: string,
 ) {
   const url = `${ENDPOINT}/genre/${area}/${service}/${genre}/${date}.json?key=${API_KEY}`
-  const json = await getJsonFromServer<List>(url)
+  const json = await getJsonFromServer<DescriptionList>(url)
   return json.list
 }
 
