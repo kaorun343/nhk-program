@@ -53,7 +53,7 @@ export type Descriptiton = {
 /**
  * @see {@link http://api-portal.nhk.or.jp/doc-request |ドキュメント リクエストの説明}
  */
-export type CollectionOfDescription = Record<string, Descriptiton>
+export type CollectionOfDescription = Record<string, readonly Descriptiton[]>
 
 /**
  * @see {@link http://api-portal.nhk.or.jp/doc-request |ドキュメント リクエストの説明}
