@@ -6,7 +6,7 @@ import { NowOnAirList } from '../components/NowOnAirList'
 import { useNowOnAir } from '../hooks/useNowOnAir'
 import { DefaultLayout } from '../layouts/DefaultLayout'
 
-export const NowOnAir: FC = () => {
+export const NowOnAirPage: FC = () => {
   const [present, getPrograms] = useNowOnAir()
 
   return (
