@@ -15,7 +15,7 @@ export function formatTime(text: string | Date) {
 }
 
 /**
- * 日時を整形する
+ * 日時を `YYYY-MM-DD` 型式に整形する
  * @param text 整形前の日時
  */
 export function formatDate(text: string | Date) {
