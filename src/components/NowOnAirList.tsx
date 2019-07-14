@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/styles'
 
 // Mine
 import { Program } from '../models/Program'
-import { ProgramItem } from './ProgramItem'
+import { NowOnAirItem } from './NowOnAirItem'
 
 type Props = {
   programs: ReadonlyArray<Program>
@@ -28,14 +28,11 @@ export const NowOnAirList: FC<Props> = ({ programs }) => {
   return (
     <div>
       <div className={classes.programs}>
-        {programs.map(program => {
-          const channel = program.service.name
-          return (
-            <div className={classes.program} key={channel}>
-              <ProgramItem title={channel} program={program} />
-            </div>
-          )
-        })}
+        {programs.map(program => (
+          <div className={classes.program} key={program.service.name}>
+            <NowOnAirItem program={program} />
+          </div>
+        ))}
       </div>
     </div>
   )

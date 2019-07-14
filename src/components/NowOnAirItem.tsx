@@ -11,14 +11,13 @@ import { formatTimeRange } from '../services/date'
 import { Link as RouterLink } from 'react-router-dom'
 
 type Props = {
-  title: string
   program: Program
 }
 
 /**
  * 番組情報を表示するコンポーネント
  */
-export const ProgramItem: FC<Props> = ({ title, program }) => {
+export const NowOnAirItem: FC<Props> = ({ program }) => {
   const timeRange = useMemo(
     () => formatTimeRange(program.start_time, program.end_time),
     [program],
@@ -35,7 +34,7 @@ export const ProgramItem: FC<Props> = ({ title, program }) => {
   return (
     <Card>
       <CardContent>
-        <Typography gutterBottom>{title}</Typography>
+        <Typography gutterBottom>{program.service.name}</Typography>
         <Typography variant="h5" component="h2">
           <Link component={RouterLink} to={to} color="inherit">
             {program.title}
