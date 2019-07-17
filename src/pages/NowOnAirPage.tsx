@@ -9,10 +9,10 @@ import { AreaIdContext } from '../contexts/AreaId'
 
 export const NowOnAirPage: FC = () => {
   const area = useContext(AreaIdContext)
-  const [present, getPrograms] = useNowOnAir(area)
+  const [present, updatePresent] = useNowOnAir(area)
 
   return (
-    <DefaultLayout title="現在放送している番組" onReload={getPrograms}>
+    <DefaultLayout title="現在放送している番組" onReload={updatePresent}>
       <NowOnAirList programs={present} />
     </DefaultLayout>
   )
