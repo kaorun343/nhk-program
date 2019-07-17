@@ -9,14 +9,13 @@ import { DefaultLayout } from '../layouts/DefaultLayout'
 import { TV, RADIO } from '../models/Service'
 
 type Params = {
-  area: string
   service: TV | RADIO
   id: string
 }
 
 export const ProgramInfoPage: FC<RouteComponentProps<Params>> = ({ match }) => {
-  const { area, service, id } = match.params
-  const program = useProgramInfo(area, service, id)
+  const { service, id } = match.params
+  const program = useProgramInfo(service, id)
 
   return (
     <DefaultLayout title="番組詳細">

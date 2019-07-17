@@ -1,26 +1,25 @@
 // Libraries
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
+import { Provider } from 'react-redux'
 import { BrowserRouter, Route } from 'react-router-dom'
 
 // Mine
 import { NowOnAirPage } from './pages/NowOnAirPage'
 import { ProgramInfoPage } from './pages/ProgramInfoPage'
-import { AreaIdContext } from './contexts/AreaId'
+import { store } from './store'
 
 /**
  * ルートコンポーネント
  */
 export const App: FC = () => {
-  const [area] = useState('010')
-
   return (
-    <AreaIdContext.Provider value={area}>
+    <Provider store={store}>
       <BrowserRouter>
         <div>
-          <Route exact path="/" component={NowOnAirPage} area={area} />
+          <Route exact path="/" component={NowOnAirPage} />
           <Route path="/programs/:service/:id" component={ProgramInfoPage} />
         </div>
       </BrowserRouter>
-    </AreaIdContext.Provider>
+    </Provider>
   )
 }
