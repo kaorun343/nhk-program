@@ -1,4 +1,5 @@
 import { Program } from './Program'
+import { TV, RADIO } from './Service'
 
 /**
  * @see {@link http://api-portal.nhk.or.jp/doc-request |ドキュメント リクエストの説明}
@@ -17,7 +18,7 @@ export type NowOnAir = {
 /**
  * @see {@link http://api-portal.nhk.or.jp/doc-request |ドキュメント リクエストの説明}
  */
-export type CollectionOfNowOnAir = Record<string, NowOnAir>
+export type CollectionOfNowOnAir = Record<TV | RADIO, NowOnAir>
 
 /**
  * @see {@link http://api-portal.nhk.or.jp/doc-request |ドキュメント リクエストの説明}

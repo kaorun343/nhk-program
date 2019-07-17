@@ -1,6 +1,7 @@
 import { DescriptionList } from '../models/Description'
 import { NowOnAirList } from '../models/NowOnAir'
 import { getApiKey } from '../services/apiKey'
+import { TV, RADIO } from '../models/Service'
 
 const ENDPOINT = 'http://api.nhk.or.jp/v2/pg'
 const API_KEY = getApiKey()
@@ -14,7 +15,7 @@ const API_KEY = getApiKey()
  */
 export async function programListApi(
   area: string,
-  service: string,
+  service: TV | RADIO | 'tv' | 'radio',
   date: string,
 ) {
   const url = `${ENDPOINT}/list/${area}/${service}/${date}.json?key=${API_KEY}`
@@ -32,7 +33,7 @@ export async function programListApi(
  */
 export async function programGenreApi(
   area: string,
-  service: string,
+  service: TV | RADIO | 'tv' | 'radio',
   genre: string,
   date: string,
 ) {
@@ -50,7 +51,7 @@ export async function programGenreApi(
  */
 export async function programInfoApi(
   area: string,
-  service: string,
+  service: TV | RADIO | 'tv' | 'radio',
   id: string,
 ) {
   const url = `${ENDPOINT}/info/${area}/${service}/${id}.json?key=${API_KEY}`
@@ -64,7 +65,10 @@ export async function programInfoApi(
  * @param area 地域ID
  * @param service サービスID
  */
-export async function nowOnAirApi(area: string, service: string) {
+export async function nowOnAirApi(
+  area: string,
+  service: TV | RADIO | 'tv' | 'radio',
+) {
   const url = `${ENDPOINT}/now/${area}/${service}.json?key=${API_KEY}`
   const json = await getJsonFromServer<NowOnAirList>(url)
   return json.nowonair_list

@@ -1,5 +1,5 @@
 import { Area } from './Area'
-import { Service } from './Service'
+import { Service, TV, RADIO } from './Service'
 import { Logo } from './Logo'
 
 /**
@@ -53,7 +53,7 @@ export type Description = {
 /**
  * @see {@link http://api-portal.nhk.or.jp/doc-request |ドキュメント リクエストの説明}
  */
-export type CollectionOfDescription = Record<string, readonly Description[]>
+export type CollectionOfDescription = Record<TV | RADIO, readonly Description[]>
 
 /**
  * @see {@link http://api-portal.nhk.or.jp/doc-request |ドキュメント リクエストの説明}

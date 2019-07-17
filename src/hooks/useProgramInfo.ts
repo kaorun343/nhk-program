@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Description } from '../models/Description'
 import { programInfoApi } from '../infrastructures/api'
+import { TV, RADIO } from '../models/Service'
 
 /**
  * 番組の詳細情報を取り扱うカスタムフック
@@ -9,7 +10,7 @@ import { programInfoApi } from '../infrastructures/api'
  * @param service サービスID
  * @param id 番組ID
  */
-export function useProgramInfo(area: string, service: string, id: string) {
+export function useProgramInfo(area: string, service: TV | RADIO, id: string) {
   const [description, setDescription] = useState(null as Description | null)
 
   useEffect(() => {

@@ -1,5 +1,5 @@
 import { Area } from './Area'
-import { Service } from './Service'
+import { Service, TV, RADIO } from './Service'
 
 /**
  * @see {@link http://api-portal.nhk.or.jp/doc-request |ドキュメント リクエストの説明}
@@ -51,7 +51,7 @@ export function uniquePrograms<T extends Pick<Program, 'id'>>(
 /**
  * @see {@link http://api-portal.nhk.or.jp/doc-request |ドキュメント リクエストの説明}
  */
-export type CollectionOfProgram = Record<string, Program[]>
+export type CollectionOfProgram = Record<TV | RADIO, Program[]>
 
 /**
  * @see {@link http://api-portal.nhk.or.jp/doc-request |ドキュメント リクエストの説明}
