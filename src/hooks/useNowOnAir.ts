@@ -6,7 +6,7 @@ async function getPrograms() {
   const list = await nowOnAirApi('010', 'tv')
 
   // format now on air list
-  const channels = Object.keys(list).map(key => list[key])
+  const channels = Object.values(list)
   const present = channels.map(channel => channel.present)
 
   return uniquePrograms(present)
