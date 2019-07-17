@@ -6,10 +6,11 @@ import { RouteComponentProps } from 'react-router-dom'
 import { useProgramInfo } from '../hooks/useProgramInfo'
 import { ProgramDetail } from '../components/ProgramDetail'
 import { DefaultLayout } from '../layouts/DefaultLayout'
+import { TV, RADIO } from '../models/Service'
 
 type Params = {
   area: string
-  service: string
+  service: TV | RADIO
   id: string
 }
 
