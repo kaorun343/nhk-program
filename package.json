@@ -25,7 +25,7 @@
     "electron": "^7.2.4",
     "electron-builder": "^21.0.15",
     "jest": "^24.8.0",
-    "parcel": "^1.12.3",
+    "parcel": "^2.8.2",
     "ts-jest": "^24.0.2",
     "typescript": "^3.5.3"
   },
